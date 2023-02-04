@@ -1,0 +1,97 @@
+
+
+
+
+<!-- Header -->
+<header class="bg-warning py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Shop in style</h1>
+          <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+      </div>
+  </div>
+</header>
+<section class="py-5 ">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="1000">
+        <img style="width:100% ; height:31rem;" src="https://i.postimg.cc/2j1RbmVH/image.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item"  data-bs-interval="1000">
+        <img style="width:100% ; height:31rem;"src="https://i.postimg.cc/gcMmCn82/image.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item"  data-bs-interval="1000">
+        <img style="width:100% ; height:31rem;"src="https://i.postimg.cc/VvN1NWfv/image.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+<div class="container">
+  <div class="container d-flex justify-content-between">
+      <div class="col-3 p-2 m-3" >
+          
+         <a  (click)="filter('') ">
+          <img class=""  style="border-radius: 10rem; height: 10rem;"   src="https://i.postimg.cc/SNz1vFJM/image.png" alt="">
+          <h6>All product</h6>
+         </a>
+      </div>
+      <div class="col-3 p-2 m-3">
+         <a (click)="filter(2)">
+          <img  class="" style="border-radius: 10rem; height: 10rem;"  src="https://i.postimg.cc/bY0R5xPq/image.png" alt="">
+          <h6>Fashion</h6>
+         </a>
+      </div>
+      <div class="col-3 p-2  m-3">
+        <a (click)="filter(1)">
+          <img class=""  style="border-radius: 2rem;height: 10rem;"  src="https://i.postimg.cc/D0cmcftK/image.png" alt="">
+          <h6>Electronics</h6>
+        </a>
+      </div>
+      <div class="col-3 p-2   m-3">
+       <a (click)="filter(3)">  
+           <img class=""  style="border-radius: 10rem;height: 10rem;"  src="https://i.postimg.cc/7P5BQG66/image.png" alt="">
+          <h6>Jwellery</h6></a>
+      </div>
+  </div>
+</div>
+<!-- Section-->
+<section class="py-5 bg-secondary">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div  *ngFor="let i of filterproducts | filter:searchkey:'productName'" class="col mb-5 ">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img style="height: 250px;" class="card-img-top" src="{{i.productImg}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{i.productName}}</h5>
+                            <p>{{i.description}}</p>
+                            <!-- Product price-->
+                            {{i.price | currency:"₹"}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="product/view-product/{{i.id}}">View options</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
